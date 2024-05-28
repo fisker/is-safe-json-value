@@ -23,6 +23,7 @@ test(() => {
   assert(isSafeJsonValue(BigInt(1)).safe === false);
   assert(isSafeJsonValue(Symbol('symbol')).safe === false);
   assert(isSafeJsonValue(Promise.resolve()).safe === false);
+  assert(isSafeJsonValue(JSON.rawJSON('123')).safe === false);
 
   const circularArray = [];
   circularArray.push(circularArray);

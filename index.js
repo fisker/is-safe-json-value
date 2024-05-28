@@ -14,6 +14,7 @@ export const {
   INVALID_JSON_VALUE,
   NUMBER_NAN,
   NUMBER_INFINITE,
+  RAW_JSON
 } = new Proxy({}, { get: (_, code) => code });
 
 const REASONS = {
@@ -22,6 +23,7 @@ const REASONS = {
   [INVALID_JSON_VALUE]: "Invalid JSON value.",
   [NUMBER_NAN]: "Invalid JSON value 'NaN'.",
   [NUMBER_INFINITE]: "Infinite number.",
+  [RAW_JSON]: 'Raw JSON value found.'
 };
 
 class SafeJsonInspector {
@@ -73,6 +75,11 @@ class SafeJsonInspector {
 
     if (typeof value.toJSON === "function") {
       this.code = TO_JSON_METHOD;
+      return false;
+    }
+
+    if (JSON.isRawJSON?.(value)) {
+      this.code = RAW_JSON
       return false;
     }
 
