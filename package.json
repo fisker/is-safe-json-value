@@ -1,7 +1,7 @@
 {
   "name": "is-safe-json-value",
   "version": "0.0.0",
-  "description": "Check if given JavaScript is safe JSON value.",
+  "description": "Check if given JavaScript value is a safe JSON value.",
   "homepage": "https://github.com/fisker/is-safe-json-value#readme",
   "bugs": {
     "url": "https://github.com/fisker/is-safe-json-value/issues"

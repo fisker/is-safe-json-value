@@ -14,7 +14,7 @@
 [package_version_badge]: https://img.shields.io/npm/v/is-safe-json-value.svg?style=flat-square
 [package_link]: https://www.npmjs.com/package/is-safe-json-value
 
-> Check if given JavaScript is safe JSON value.
+> Check if given JavaScript value is a safe JSON value.
 
 ## Install
 
