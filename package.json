@@ -1,0 +1,69 @@
+{
+  "name": "is-safe-json-value",
+  "version": "0.0.0",
+  "description": "Check if given JavaScript is safe JSON value.",
+  "homepage": "https://github.com/fisker/is-safe-json-value#readme",
+  "bugs": {
+    "url": "https://github.com/fisker/is-safe-json-value/issues"
+  },
+  "repository": "fisker/is-safe-json-value",
+  "funding": "https://github.com/fisker/is-safe-json-value?sponsor=1",
+  "license": "MIT",
+  "author": {
+    "name": "fisker Cheung",
+    "email": "lionkay@gmail.com",
+    "url": "https://www.fiskercheung.com/"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "clean": "run-p \"clean:*\"",
+    "clean:dist": "del-cli dist",
+    "dist": "run-p \"dist:*\"",
+    "dist:npm": "np --yolo --no-yarn",
+    "format": "run-p \"format:*\"",
+    "format:eslint": "yarn lint:eslint --fix",
+    "format:markdown": "markdownlint-cli2 --fix",
+    "format:package-json": "sort-package-json \"package.json\" \"packages/*/package.json\"",
+    "format:prettier": "yarn lint:prettier --write",
+    "lint": "run-p \"lint:*\"",
+    "lint:eslint": "eslint \"**/*.{js,jsx,mjs,cjs,vue}\"",
+    "lint:markdown": "markdownlint-cli2",
+    "lint:package-json": "yarn run format:package-json --check",
+    "lint:prettier": "prettier . --check",
+    "prepare": "husky install",
+    "release": "run-s lint test format dist",
+    "test": "node --test",
+    "test-coverage": "c8 yarn test"
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "lcov"
+    ]
+  },
+  "devDependencies": {
+    "@fisker/eslint-config": "12.1.0",
+    "@fisker/husky-config": "4.1.3",
+    "@fisker/lint-staged-config": "3.3.2",
+    "@fisker/markdownlint-cli2-config": "0.0.3",
+    "@fisker/prettier-config": "5.1.1",
+    "c8": "9.1.0",
+    "eslint": "8.56.0",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.5",
+    "markdownlint-cli2": "0.13.0",
+    "npm-run-all2": "6.2.0",
+    "prettier": "3.2.5",
+    "sort-package-json": "2.10.0"
+  },
+  "packageManager": "yarn@4.2.2",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
